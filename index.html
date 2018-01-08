@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html >
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>FIO LABS</title>
+	<meta name="author" content="" />
+	<meta name="description" content="" />
+	<meta name="keywords"  content="" />
+	<meta name="Resource-type" content="" />
+
+	<!-- base URL  -->
+	<!-- <base href="file:///D:/my_projects/htdocs/UIUX/fiot/" target="_self"> -->
+
+	<!-- favicon -->
+	<link rel="shortcut icon" href="favicon-32x32.png" type="image/x-icon">	
+	
+	<!--Import Google Icon Font-->
+	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+	<!-- Font Awesome CDN  -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+	<!-- normalize css -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css">
+
+	<!-- Materialize Compiled and minified CSS CDN-->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+
+	<!-- Google fonts -->
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
+
+	<!-- Fullpage.js css -->
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.8.2/jquery.fullPage.css" />
+
+	<!-- custom style css -->
+	<link rel="stylesheet" type="text/css" href="static/css/style.css" />
+
+</head>
+<body>
+
+	<div class="container initial-page">
+		<div class="row">
+			<div class="col l8 m8 s12 offset-m2 offset-l2">
+				<div class="row first-loading center-align">
+					<div class="col s12 all-logo-text">
+						<div><h2 class="logo-text">FIO LABS	</h2></div>
+						<div>
+							<h5 class="tag-text"><span class="tag-line">We figure it out</span><span class="cap">^</span> <span class="always">always</span> 
+							</h5>
+						</div>
+					</div><!-- end  all-logo-text-->
+
+					<div class="col s12 center-align svg-logo">
+
+						<img src="static/images/fio_logo_full_page.svg" class="responsive-img" alt="LOGO">
+
+					</div><!-- end svg-logo -->
+
+					<div class="col s12 logo-down-shadow">				
+						<img src="static/images/logo-down-shadow.png" class="responsive-img"  alt="logo-down-shadow">
+					</div><!-- end logo-down-shadow -->
+
+					<span class="preloader">
+						<svg id="animated" viewbox="0 0 100 100">
+							<circle cx="50" cy="50" r="45" fill="none"/>
+							<path id="progress" stroke-linecap="round" stroke-width="5" stroke="#bbdefb" fill="none" d="M50 10 a 40 40 0 0 1 0 80
+							a 40 40 0 0 1 0 -80">
+						</path>
+						<text id="count" x="50" y="50" text-anchor="middle" dy="7" fill="#64b5f6" font-size="20">100%</text>
+					</svg>
+				</span><!-- end preloader -->
+			</div><!-- end  first-loading-->
+		</div><!-- end col l8 -->
+	</div>	<!-- end row -->
+</div><!--end  container -->
+
+
+
+
+<!-- Jquery CDN -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script> 
+
+<!-- jquery UI CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.0/jquery-ui.js"></script>
+
+<!-- modernizr CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+
+<!--CDN link for  TweenMax-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js"></script>
+
+<!-- Materialize Compiled and minified JS CDN-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+
+<!--  Scrolloverflow js-->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.8.2/vendors/scrolloverflow.js"></script>
+
+
+<!--  snap.svg js-->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.3.0/snap.svg-min.js"></script>
+
+<!-- Fullpage.js js  -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.8.2/jquery.fullPage.min.js"></script>
+
+<script type="text/javascript" src="http://beneposto.pl/jqueryrotate/js/jQueryRotateCompressed.js"></script>
+
+<!-- custom script js -->
+<script src="static/js/script.js" type="text/javascript" charset="utf-8" async defer></script>
+
+<script  type="text/javascript" charset="utf-8" async defer>
+	$(document).ready(function() {
+
+		var $logotext = $(".logo-text");
+		var $tagline = $(".tag-line"); 
+		var $cap = $(".cap"); 
+		var $always = $(".always");
+		var $tagtext = $(".tag-text"); 
+		var $initialpage = $(".initial-page"); 
+
+
+		/*It's adding span to each and every text */
+		$logotext.html( $logotext.html().replace(/./g, "<span>$&</span>").replace(/\s/g, "&nbsp;"));
+		$tagline.html( $tagline.html().replace(/./g, "<span>$&</span>").replace(/\s/g, "&nbsp;"));
+		$cap.html( $cap.html().replace(/./g, "<span>$&</span>").replace(/\s/g, "&nbsp;"));
+		$always.html( $always.html().replace(/./g, "<span>$&</span>").replace(/\s/g, "&nbsp;"));
+
+		/*we just hide out opacity for look*/
+		$logotext.css({opacity:1});
+		$tagtext.css({opacity:1});
+
+		/*preloader counter*/
+		var count = $(('#count'));
+		$({ Counter: 0 }).animate({ Counter: count.text() }, {
+			duration: 9000,
+			easing: 'linear',
+			step: function () {
+				count.text(Math.ceil(this.Counter)+ "%");
+			}
+		});
+
+		var s = Snap('#animated');
+		var progress = s.select('#progress');
+
+		progress.attr({strokeDasharray: '0, 251.2'});
+		Snap.animate(0,251.2, function( value ) {
+			progress.attr({ 'stroke-dasharray':value+',251.2'});
+		}, 9000,initial_page);
+		/*end preloader counter */
+
+		/* logo, logo shadow, company name text, and tagline animations*/
+		$('.first-loading').find('.svg-logo img').delay(500).animate({marginTop:'0px',opacity:1},2000);
+		$('.first-loading').find('.logo-down-shadow img').delay(1000).animate({opacity:1},2000,logo_text);
+
+		function logo_text(){
+			TweenMax.staggerFromTo( $logotext.find("span"), 0.4, {opacity: 0, scale:7}, {opacity: 1, scale:1}, 0.1,tag_text); }
+
+			function tag_text(){
+				TweenMax.staggerFromTo( $tagtext.find("span"), 0.4, {opacity:0, color:"red"}, {opacity:1, color:"black"}, 0.1); }
+
+				function initial_page(){      
+					/*TweenLie.to($initialpage, 0.10, {opacity: 0, display:'none',onComplete:show_fullpage});     */
+					window.location.href = "home.html";
+					/*show_fullpage();*/
+
+				}
+
+			});
+		</script>
+
+		
+
+	</body>
+	</html>
+
+
